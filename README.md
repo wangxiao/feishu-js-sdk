@@ -2,7 +2,7 @@
 
 飞书简单版的 JavaScript SDK。
 
-使用前你需要将你的飞书应用 AppID 和 Secret 配置到你的环境变量中，如果使用 [AirCode](https://aircode.io) 就是配置在右侧的 Environment 中。
+使用时你需要将你的飞书应用 AppID 和 Secret 配置到你的环境变量中，名称分别为 `appId` 和 `appSecret`，如果使用 [AirCode](https://aircode.io) 就是配置在右侧的 Environment 中。
 
 ## 方法列表
 

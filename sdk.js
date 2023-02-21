@@ -6,11 +6,18 @@ const imageSize = require('image-size');
 
 // 获取 tenant_access_token ，相关 id 都可以存储在轻服务的环境变量中
 const getTenantToken = async () => {
-  const res = await axios.post('https://open.feishu.cn/open-apis/v3/auth/tenant_access_token/internal/', {
-    "app_id": process.env.appId,
-    "app_secret": process.env.appSecret,
-  });
-  return res.data.tenant_access_token;
+  const appId = process.env.appId;
+  const appSecret = process.env.appSecret;
+  if (appId && appSecret) {
+    const res = await axios.post('https://open.feishu.cn/open-apis/v3/auth/tenant_access_token/internal/', {
+      "app_id": appId,
+      "app_secret": appSecret,
+    });
+    return res.data.tenant_access_token;
+  } else {
+    console.log('AppID or Secret is null.');
+    return null;
+  }
 };
 
 // 获取机器人所在群
